@@ -1,44 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "nav_bar.html" %}
+{% block title %}{{ title }}{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Machine Translation</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
+{% block content %}
 
-<body>
-    <div class="container">
-        <h1>Machine Translation</h1>
-        <div>
-            <textarea id="inputText" placeholder="Enter text to translate"></textarea>
-        </div>
-        <div>
-            <button onclick="translate()">Translate</button>
-        </div>
-        <div>
-            <p>Translated Text:</p>
-            <div id="translatedText"></div>
-        </div>
+<div id="idx_div1">
+    <h1 id="idx_h1">Machine Translation</h1>
+    <div id="idx_div2">
+        <textarea id="idx_inputText1" placeholder="Enter text to translate"></textarea>
     </div>
-    <!-- <script>
-        function translate() {
-            const inputText = document.getElementById('inputText').value;
-
-            fetch('/translate', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ text: inputText })
-            })
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('translatedText').innerText = data.translated_text;
-                })
-                .catch(error => console.error('Error:', error));
-        }
-    </script> -->
-</body>
-
-</html>
+    <div id="idx_div3">
+        <button onclick="translate()" id="idx_translate">Translate</button>
+    </div>
+    <div id="idx_div4">
+        <p id="idx_p1">Translated Text:</p>
+        <div id="idx_translatedText"></div>
+    </div>
+</div>
+{% endblock %}
