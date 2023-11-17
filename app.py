@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, redirect, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -36,16 +36,13 @@ def index():
     return render_template('index.html', title=title)
 
 
-@app.route('/translate', methods=['POST'])
+reversed_text = []
+
+
+@app.route('/translate', methods=['POST', 'GET'])
 def translate():
-    # Dummy translation function - Replace this with your translation logic
-    data = request.get_json()
-    text_to_translate = data.get('text', '')
-    # Replace this with actual translation logic
-    translated_text = f"Translated: {text_to_translate}"
-
-    return jsonify({'translated_text': translated_text})
-
-
-# if __name__ == '__main__':
-#     app.run(debug=True)
+    title = "Translation"
+    # text = request.form['textToTranslate']
+    text = request.form.get('textToTranslate')
+    reversed_text.append("{}".format(text[::-1]))
+    return render_template('index.html', reversed_text=reversed_text, title=title)
