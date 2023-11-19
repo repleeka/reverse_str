@@ -5,11 +5,6 @@
 
 <div id="idx_div1">
     <h1 id="idx_h1"> Add String to Reverse</h1>
-    <!-- {% if error_msg %}
-    <div style="background-color: #f8d7da; color: #721c24; padding: 10px; border: 1px solid #f5c6cb;">
-        <strong>{{ error_msg }}</strong>
-    </div>
-    {% endif %} -->
     <form action="/reverse" METHOD="POST">
         <div id="idx_div2">
             <textarea name="textToTranslate" id="idx_inputText1" placeholder="Enter text to reverse"
@@ -20,7 +15,7 @@
         </div>
         <div id="idx_div4">
             <h1>Reversed Text:</h1>
-            <!-- only printing the last element in the list -->
+            <!-- only printing the latest added element in the list -->
             <strong>{{ reversed_text[-1] if reversed_text else '' }}</strong>
         </div>
     </form>
